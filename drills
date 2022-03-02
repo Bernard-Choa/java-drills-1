@@ -1,0 +1,101 @@
+/*
+a) 8
+b) 4
+c) -13
+d) 3
+e) 2
+f) jjjjjjxxx
+*/
+
+
+import java.util.Scanner;
+import java.lang.Math;
+public class Main {
+    public static void draw_stuff() {
+        System.out.print("***********     ***       *        *     ");
+        System.out.print("*         *   *     *    ***      * *    ");
+        System.out.print("*         *  *       *  *****    *   *   ");
+        System.out.print("*         *  *       *    *     *     *  ");
+        System.out.print("*         *  *       *    *    *       * ");
+        System.out.print("*         *  *       *    *     *     *  ");
+        System.out.print("*         *  *       *    *      *   *   ");
+        System.out.print("*         *   *     *     *       * *    ");
+        System.out.print("***********     ***       *        *     ");
+    }
+    
+    public static void C_to_F() {
+        
+        Scanner input_temp = new Scanner(System.in);
+
+        System.out.print("Input temperature in C°: ");
+        double celsius = input_temp.nextDouble();
+
+        double fahrenheit =((celsius * 9/5) + 32);
+        System.out.println(celsius + " Celsius degress are " + fahrenheit + " Fahrenheit degrees.");
+    }
+    
+    public static float mean(int[] data) {
+        float total = 0;
+        for (int i = 0; i < data.length; i++) {
+            total += data[i];
+        }
+        float mean_avg = total / data.length;
+        return mean_avg;
+    }
+    
+    public static float variance(int[] data) {
+        float total = 0f;
+        float mu = mean(data);
+        for (int i = 0; i < data.length; i++) {
+            total += Math.pow((mu - data[i]), 2);
+        }
+        float var_avg = total / data.length;
+        return var_avg;
+    }
+    
+    public static void stn_dev(int[] data) {
+        float variance = variance(data);
+        System.out.println(Math.sqrt(variance));
+    }
+    
+    public static void var_exchange(int x, int y) {
+        System.out.println("Before exchange: ");
+        System.out.println("x = " + x);
+        System.out.println("y = " + y);
+        
+        int temp_var = x;
+        x = y;
+        y = temp_var;
+        
+        System.out.println("After exchange: ");
+        System.out.println("x = " + x);
+        System.out.println("y = " + y);
+    }
+    
+    public static void power_table() {
+        System.out.println("number" + "\t" + "square" + "\t" + "cube");
+        for(int i = 1; i < 11; i++) {
+            System.out.println(i + "\t" + (int) Math.pow(i,2) + "\t" + (int) Math.pow(i,3));
+        }
+    }
+    
+    public static void quadratic_formula(float a, float b, float c) {
+        float x_1 = (float) (- b + Math.sqrt(b*b - 4*a*c)) / (2*a);
+        float x_2 = (float) (- b - Math.sqrt(b*b - 4*a*c)) / (2*a);
+        System.out.println(x_1);
+        System.out.println(x_2);
+    }
+    
+    public static void sec_to_day(int secs) {
+        int hour = secs / 3600;
+        secs = secs % 3600;
+        int min = secs / 60;
+        secs = secs % 60;
+        System.out.println(("" + hour) + " hr " + ("" + min) + " min " + ("" + secs) + " sec");
+    }
+
+    public static void main(String[] args) {
+    }
+}
+
+
